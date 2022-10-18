@@ -16,25 +16,25 @@
         </StackLayout>
             <StackLayout Padding="10, 10, 10, 10" HorizontalOptions="Start">
                 <Label Text="Local:"/>
-                <Label Text="{Binding Title}" TextColor="Black"/>
+                <Label Text="{Binding Title}"/>
 
                 <Label Text="Temperatura:"/>
-                <Label Text="{Binding Temperature}" TextColor="Black"/>
+                <Label Text="{Binding Temperature}"/>
 
                 <Label Text="Velocidade Vento:"/>
-                <Label Text="{Binding Wind}" TextColor="Black"/>
+                <Label Text="{Binding Wind}"/>
 
                 <Label Text="Humidade:"/>
-                <Label Text="{Binding Humidity}" TextColor="Black"/>
+                <Label Text="{Binding Humidity}"/>
 
                 <Label Text="Visibilidade:"/>
-                <Label Text="{Binding Visibility}" TextColor="Black"/>
+                <Label Text="{Binding Visibility}"/>
 
                 <Label Text="Hora do nascimento do Sol:"/>
-                <Label Text="{Binding Sunrise}" TextColor="Black"/>
+                <Label Text="{Binding Sunrise}"/>
 
                 <Label Text="Hora do pôr do Sol:"/>
-                <Label Text="{Binding Sunset}" TextColor="Black"/>
+                <Label Text="{Binding Sunset}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

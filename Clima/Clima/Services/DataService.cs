@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 using Clima.Model;
 namespace Clima.Services
 {
-     class DataService
+     public class DataService
     {
         public static async Task<Tempo> GetPrevisaoTempo(string cidade)
         {
             string appID = "19c25433b7045b055507306895bd8ade";
-            string queryString = "http://home.openweathermap.org/data/2.5/weather?q=" + cidade + "&units=metric" + "&appid=" + appID;
+            string queryString = "https://api.openweathermap.org/data/2.5/weather?q=" + cidade + "&units=metric" + "&appid=" + appID;
+
+            Console.WriteLine(queryString);
+
             dynamic resultado = await getDataFromService(queryString).ConfigureAwait(false);
 
             if (resultado["weather"] != null)
@@ -55,7 +58,12 @@ namespace Clima.Services
         {
             string appID = "19c25433b7045b055507306895bd8ade";
 
-            string url = string.Format("http://home.openweathermap.org/data/2.5/forecast/daily?q={0}&units=metric&cnt=1&APPID={1}", city.Trim(), appID);
+            string url = string.Format("https://api.openweathermap.org/data/2.5/forecast/daily?q={0}&units=metric&cnt=1&APPID={1}", city.Trim(), appID);
+
+
+            Console.WriteLine(url);
+
+
             HttpClient client = new HttpClient();
             var response = await client.GetAsync(url);
             dynamic data = null;
