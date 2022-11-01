@@ -9,21 +9,25 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Clima.Services;
+using System.ComponentModel;
 
 namespace Clima.View
 {
+    [DesignTimeVisible(false)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainWindow : ContentPage
     {
+
+
         public MainWindow()
         {
             InitializeComponent();
             this.Title = "Previsão do Tempo";
             this.BindingContext = new Tempo();
-
         }
 
-        private async void btn_Previsao_Clicked(object sender, EventArgs e)
+
+        private async void Btn_Previsao_Clicked(object sender, EventArgs e)
         {
             try
             {
@@ -34,10 +38,12 @@ namespace Clima.View
                     btn_Previsao.Text = "Nova Previsão";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 await DisplayAlert("Erro", ex.Message, "OK");
             }
         }
+
     }
+
 }

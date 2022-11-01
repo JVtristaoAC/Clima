@@ -22,7 +22,7 @@ namespace Clima.Services
             {
                 Tempo previsao = new Tempo();
                 previsao.Title = (string)resultado["name"];
-                previsao.Temperature = (string)resultado["main"]["temp"] + "C";
+                previsao.Temperature = (string)resultado["main"]["temp"];
                 previsao.Wind = (string)resultado["wind"]["speed"] + "mph";
                 previsao.Humidity = (string)resultado["main"]["humidity"] + "%";
                 previsao.Visibility = (string)resultado["weather"][0]["main"];

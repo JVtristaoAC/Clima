@@ -3,39 +3,74 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Clima.View.MainWindow">
     <ContentPage.Content>
-        <StackLayout>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#545454">
-                <StackLayout Padding="10,10,10,10" HorizontalOptions="Start">
-                    <Label Text="Procurar Cidade" TextColor="White" FontAttributes="Bold" FontSize="Medium"/>
-                    <Label x:Name="lbl_Cidade" Text="Digite o Nome da Cidade" TextColor="Yellow" FontSize="Small"/>
-                    <Entry x:Name="ent_Cidade"/>
+        <Grid>
+
+
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="overlay.png" Aspect="Fill" HeightRequest="250" VerticalOptions="StartAndExpand"/>
+                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Start" VerticalOptions="Start" Margin="20,50">
+                    <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" TextColor="White"/>
                 </StackLayout>
-                <StackLayout Padding="0, 0, 0, 10" VerticalOptions="End">
-                    <Button x:Name="btn_Previsao" Text="Previsao do Tempo" WidthRequest="185" BorderWidth="1" Clicked="btn_Previsao_Clicked"/>
+                <StackLayout Orientation="Vertical" Margin="0,20" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="{Binding Temperature}" TextColor="White" FontSize="70" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Label Text="°C" TextColor="White" FontSize="34" VerticalOptions="Center"/>
+                    </StackLayout>
+                   
                 </StackLayout>
-        </StackLayout>
-            <StackLayout Padding="10, 10, 10, 10" HorizontalOptions="Start">
-                <Label Text="Local:"/>
-                <Label Text="{Binding Title}"/>
 
-                <Label Text="Temperatura:"/>
-                <Label Text="{Binding Temperature}"/>
+                <Frame Grid.Row="1" HasShadow="True" CornerRadius="10" Margin="20,-40,20,0" Padding="0" HeightRequest="120" VerticalOptions="Start">
 
-                <Label Text="Velocidade Vento:"/>
-                <Label Text="{Binding Wind}"/>
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
+                            <Image Source="humidity.png" HeightRequest="25" HorizontalOptions="Center"/>
+                            <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+                                <Label Text="{Binding Humidity}" TextColor="Black" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                <Label Text="Humidity" TextColor="#7D7D7D" FontSize="11" HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
+                            <Image Source="wind.png" HeightRequest="25" HorizontalOptions="Center"/>
+                            <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+                                <Label Text="{Binding Wind}" TextColor="Black" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                <Label Text="Wind" TextColor="#7D7D7D" FontSize="11" HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2" Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
+                            <Image Source="cloudiness.png" HeightRequest="25" HorizontalOptions="Center"/>
+                            <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+                                <Label Text="{Binding Visibility}" TextColor="Black" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                <Label Text="Visibility" TextColor="#7D7D7D" FontSize="11" HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
 
-                <Label Text="Humidade:"/>
-                <Label Text="{Binding Humidity}"/>
+                    </Grid>
 
-                <Label Text="Visibilidade:"/>
-                <Label Text="{Binding Visibility}"/>
+                </Frame>
 
-                <Label Text="Hora do nascimento do Sol:"/>
-                <Label Text="{Binding Sunrise}"/>
-
-                <Label Text="Hora do pôr do Sol:"/>
-                <Label Text="{Binding Sunset}"/>
+            </Grid>
+            <StackLayout Padding="10,450,10,10">
+                <Label Text="Procurar Cidade" TextColor="White" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center"/>
+                <Entry x:Name="ent_Cidade" Placeholder="Digite o Nome da Cidade" HorizontalOptions="Center" Margin="30"/>
+                <Button x:Name="btn_Previsao" Text="Previsao do Tempo" Clicked="Btn_Previsao_Clicked" BackgroundColor="Purple" HorizontalOptions="Center"/>
             </StackLayout>
-        </StackLayout>
+        </Grid>
+
+
+
+
+
     </ContentPage.Content>
 </ContentPage>
